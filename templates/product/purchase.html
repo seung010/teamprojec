@@ -82,7 +82,7 @@
    
              <hr class="my-4">
    
-             <button id = "purchase" class=" w-100 btn btn-primary btn-lg" type="submit">이곳을 눌러 구매</button>
+             
              <a class="btn" href="#" onclick="purchase()" >제출하기</a>
 
            </form>
@@ -107,19 +107,19 @@
 function purchase() {
 
 if(document.getElementById("cardname").value==''){
-	alert("cardname을 입력해주십시오.");
+	alert("카드명을 입력해주십시오.");
 	return false;
 }
 if(document.getElementById("cc-number").value==''){
-	alert("cc-number를 입력해주십시오.");
+	alert("카드번호를 입력해주십시오.");
 	return false;
 }
 if(document.getElementById("cc-expiration").value==''){
-	alert("cc-expiration를 입력해주십시오.");
+	alert("유효기간를 입력해주십시오.");
 	return false;
 }
 if(document.getElementById("cc-cvv").value==''){
-	alert("cc-cvv를 입력해주십시오.");
+	alert("CVV값 세자리를 입력해주십시오.");
 	return false;
 }
 
