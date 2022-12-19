@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+
+{% block con %}
+
+  <body class="bg-light">
+    
+   <div class="container">
+     <main>
+       <div class="py-5 text-center">
+         
+         <h2>Checkout form</h2>
+         <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+       </div>
+   
+       <div class="row g-5">
+         
+         <div class="col-md-7 col-lg-8">
+           
+
+
+
+
+
+          <form id = "purchase" method="post">
+          {% csrf_token %}
+             
+   
+ 
+             
+   
+             <h4 class="mb-3"> 구매 제품 선택 </h4>
+   
+             <div class="my-3">
+               <div class="form-check">
+                 <input id="credit" name="productnum" value="A" type="radio" class="form-check-input" checked required>
+                 <label class="form-check-label" for="credit">A Plan</label>
+               </div>
+               <div class="form-check">
+                 <input id="debit" name="productnum" value="B" type="radio" class="form-check-input" required>
+                 <label class="form-check-label" for="debit">B Plan</label>
+               </div>
+               <div class="form-check">
+                 <input id="paypal" name="productnum" value="C" type="radio" class="form-check-input" required>
+                 <label class="form-check-label" for="paypal">C Plan</label>
+               </div>
+             </div>
+   
+             <div class="row gy-3">
+               <div class="col-md-6">
+                 <label for="cardname" class="form-label">카드명</label>
+                 <input type="text" name="cardname" class="form-control" id="cardname" placeholder="" required>
+                 <small class="text-muted">카드명을 입력</small>
+                 <div class="invalid-feedback">
+                   Name on card is required
+                 </div>
+               </div>
+   
+               <div class="col-md-6">
+                 <label for="cc-number" class="form-label">카드번호</label>
+                 <input type="text" name="cardnum" class="form-control" id="cc-number" placeholder="" required>
+                 <div class="invalid-feedback">
+                   Credit card number is required
+                 </div>
+               </div>
+   
+               <div class="col-md-3">
+                 <label for="cc-expiration" class="form-label">유효기간</label>
+                 <input type="text" name="cardexp" class="form-control" id="cc-expiration" placeholder="" required>
+                 <div class="invalid-feedback">
+                   Expiration date required
+                 </div>
+               </div>
+   
+               <div class="col-md-3">
+                 <label for="cc-cvv" class="form-label">CVV</label>
+                 <input type="text" name="cardCVV" class="form-control" id="cc-cvv" placeholder="" required>
+                 <div class="invalid-feedback">
+                   Security code required
+                 </div>
+               </div>
+             </div>
+   
+             <hr class="my-4">
+   
+             <button id = "purchase" class=" w-100 btn btn-primary btn-lg" type="submit">이곳을 눌러 구매</button>
+             <a class="btn" href="#" onclick="purchase()" >제출하기</a>
+
+           </form>
+
+
+
+
+
+         </div>
+       </div>
+     </main>
+   
+
+   </div>
+   
+   
+
+     </body>
+
+
+<script>
+function purchase() {
+
+if(document.getElementById("cardname").value==''){
+	alert("cardname을 입력해주십시오.");
+	return false;
+}
+if(document.getElementById("cc-number").value==''){
+	alert("cc-number를 입력해주십시오.");
+	return false;
+}
+if(document.getElementById("cc-expiration").value==''){
+	alert("cc-expiration를 입력해주십시오.");
+	return false;
+}
+if(document.getElementById("cc-cvv").value==''){
+	alert("cc-cvv를 입력해주십시오.");
+	return false;
+}
+
+
+
+
+document.getElementById('purchase').submit();
+alert("정상적으로 구매되었습니다.");
+
+}
+</script>
+
+
+     {% endblock%}

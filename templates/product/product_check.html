@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% block con %}
+  <body>
+    
+<main>
+
+
+
+   {% if user.productnum %}
+
+
+   <div class="container py-4">
+      <header class="pb-3 mb-4 border-bottom">
+          <span class="fs-4">구매확인 및 환불</span>
+        </a>
+      </header>
+  
+      <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-5">
+          <h1 class="display-5 fw-bold">현재 구매 중인 솔루션</h1>
+          <p class="col-md-8 fs-4">현재 {{ user }} 고객님은 {{ user.productnum }} Plan을 구매진행중입니다.</p>
+
+
+
+            <a href="#" class="delete btn btn-outline-dark" data-uri2="{% url 'product:product_cancel' %}">구매취소</a>
+            
+
+        </div>
+      </div>
+
+  
+  
+      </div>
+  
+
+ {% else %}
+
+
+ <div class="container py-4">
+   <header class="pb-3 mb-4 border-bottom">
+       <span class="fs-4">구매확인 및 환불</span>
+     </a>
+   </header>
+
+   <div class="p-5 mb-4 bg-light rounded-3">
+     <div class="container-fluid py-5">
+       <h1 class="display-5 fw-bold">현재 {{ user }} 고객님이 구매중인 솔루션이 없습니다. </h1>
+
+     </div>
+   </div>
+
+
+
+   </div>
+
+
+ </div>
+ {% endif %}
+
+ <footer class="pt-3 mt-4 text-muted border-top">
+   <div class="row align-items-md-stretch">
+      <div class="col-md-6">
+        <div class="h-100 p-5 text-bg-dark rounded-3">
+          <h2>환불절차</h2>
+          <p>환불절차 내용 ~~~</p>
+          <button class="btn btn-outline-light" type="button">Example button</button>
+        </div>
+      </div>
+ </footer>
+
+
+
+
+
+
+{% comment %} 
+
+
+
+ {% endcomment %}
+
+
+
+
+
+
+
+
+
+</main>
+
+
+    
+  </body>
+  <script type='text/javascript'>
+
+
+   $(document).ready(function() {
+     $(".delete").on('click', function() {
+      if(confirm("정말로 취소하시겠습니까?")) {
+         location.href = $(this).data('uri2');
+
+       }
+     });
+   });
+ </script>
+  {% endblock%}
+
+
+  {% block noauth %}
+  로그인먼저 해주세요
+  {% endblock %}
